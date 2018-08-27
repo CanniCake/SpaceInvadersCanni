@@ -26,10 +26,12 @@ function draw() {
 	  bullets[i].show();
 	  bullets[i].move();
 	  for (var j = 0; j < aliens.length; j++){
-		  if (bullets[i].hits(aliens[j])) {
+		  if (bullets[i] && bullets[i].hits(aliens[j])) {
 			  console.log("HIT");
 			  aliens.splice(j, 1);
+			  j--;
 			  bullets.splice (i, 1);
+			  i--;
 			}
 		}		
 	}
